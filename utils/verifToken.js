@@ -17,7 +17,6 @@ const verifToken = async (req, res, next) => {
                 })
             } else {
                 let decoded = jwt.decode(token);
-                //console.log("decoded", decoded);
                 let user = await User.findById(decoded.user);
                 req.user = user;
                 next()
